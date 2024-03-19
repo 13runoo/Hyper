@@ -16,9 +16,13 @@ use App\http\Controllers\PagesController;
 */
 
 
-Route::get("/Home",[UserController::class,'index'])->name('user.index');
+Route::get("/Users",[UserController::class,'index'])->name('user.index');
+Route::get("/Home",[UserController::class,'Home'])->name('Home');
 Route::get("/user/create", [UserController::class,'create'])->name('User.create');
 Route::get("/board", [PagesController::class,'index'])->name('board');
 Route::get("/login", [PagesController::class,'login'])->name('login');
 Route::get("/edit", [PagesController::class,'edit'])->name('edit');
 Route::get("/register", [PagesController::class,'register'])->name('register');
+Route::get("/list", [PagesController::class,'list'])->name('list');
+Route::get('/book/delete/{id}' ,[UserController::class, 'destroy'])->name('user.delete');
+Route::post('/register', [UserController::class,'store'])->name('user.store');
